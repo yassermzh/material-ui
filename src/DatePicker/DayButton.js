@@ -50,6 +50,8 @@ function getStyles(props, context, state) {
   };
 }
 
+var formatter = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {day: 'numeric'})
+
 class DayButton extends Component {
   static propTypes = {
     date: PropTypes.object,
@@ -114,7 +116,9 @@ class DayButton extends Component {
         style={styles.root}
       >
         <div style={prepareStyles(styles.buttonState)} />
-        <span style={prepareStyles(styles.label)}>{this.props.date.getDate()}</span>
+        <span style={prepareStyles(styles.label)}>
+        {formatter.format(this.props.date)}
+      </span>
       </EnhancedButton>
     ) : (
       <span style={prepareStyles(styles.root)} />
