@@ -66,7 +66,7 @@ export function getDaysInMonth(d) {
 var formatter = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {day: '2-digit'});
 var oneDayInTime = 1000*60*60*24;
 
-function getFirstDayOfMonth(d) {
+export function getFirstDayOfMonth(d) {
   var dayStr = formatter.format(d)
   var daysPassed = +(('' + (dayStr[0].charCodeAt() -  1776)) +
                      ('' + (dayStr[1].charCodeAt() - 1776))) - 1
