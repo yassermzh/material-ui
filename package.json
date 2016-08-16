@@ -1,10 +1,10 @@
 {
-  "name": "material-ui-build",
-  "private": true,
-  "author": "Call-em-all Engineering Team",
-  "version": "0.16.0-alpha",
-  "description": "Material Design UI components built with React",
-  "main": "./src/index.js",
+  "name": "@yassermzh/material-ui",
+  "private": false,
+  "author": "Yasser",
+  "version": "0.16.1-alpha",
+  "description": "Forked from Material Design UI components built with React, to have persian calendar right",
+  "main": "./build/index.js",
   "keywords": [
     "react",
     "react-component",
