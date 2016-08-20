@@ -1,7 +1,7 @@
 {
-  "name": "material-ui-build",
-  "private": true,
-  "author": "Call-em-all Engineering Team",
+  "name": "@yassermzh/material-ui",
+  "private": false,
+  "author": "Yasser",
   "version": "0.15.2",
   "description": "Material Design UI components built with React",
   "main": "./src/index.js",

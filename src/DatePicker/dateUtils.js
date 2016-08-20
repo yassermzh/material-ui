@@ -55,16 +55,25 @@ export function cloneAsDate(d) {
 }
 
 export function getDaysInMonth(d) {
-  const resultDate = getFirstDayOfMonth(d);
+  // const resultDate = getFirstDayOfMonth(d);
 
-  resultDate.setMonth(resultDate.getMonth() + 1);
-  resultDate.setDate(resultDate.getDate() - 1);
+  // resultDate.setMonth(resultDate.getMonth() + 1);
+  // resultDate.setDate(resultDate.getDate() - 1);
 
-  return resultDate.getDate();
+  // return resultDate.getDate();
+  return 31;
 }
+var formatter = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {day: '2-digit'});
+var oneDayInTime = 1000*60*60*24;
 
 export function getFirstDayOfMonth(d) {
-  return new Date(d.getFullYear(), d.getMonth(), 1);
+  // return new Date(d.getFullYear(), d.getMonth(), 1);
+  var dayStr = formatter.format(d)
+  var daysPassed = +(('' + (dayStr[0].charCodeAt() -  1776)) +
+                     ('' + (dayStr[1].charCodeAt() - 1776))) - 1
+  var firstDay = new Date(d.getTime() - oneDayInTime*daysPassed)
+  //console.log(firstDay, formatter.format(firstDay))
+  return firstDay
 }
 
 export function getFirstDayOfWeek() {
@@ -78,8 +87,10 @@ export function getWeekArray(d, firstDayOfWeek) {
   const weekArray = [];
   let week = [];
 
-  for (let i = 1; i <= daysInMonth; i++) {
-    dayArray.push(new Date(d.getFullYear(), d.getMonth(), i));
+  var first =  getFirstDayOfMonth(d)
+  for (var i = 0; i < daysInMonth; i++) {
+    // dayArray.push(new Date(d.getFullYear(), d.getMonth(), i));
+    dayArray.push(new Date(first.getTime() + oneDayInTime*i));
   }
 
   const addWeek = (week) => {
